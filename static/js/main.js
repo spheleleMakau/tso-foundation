@@ -22,6 +22,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
       }
     });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        navToggle.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('nav-open');
+      }
+    });
   }
 
   links.forEach(function (link) {
