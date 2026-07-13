@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}Gallery | TSO Foundation{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Gallery</p>
+    <h1>Capturing the heart of our community work.</h1>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="category-list">
+    <span>Education</span>
+    <span>Sports</span>
+    <span>Community</span>
+    <span>School Support</span>
+    <span>Events</span>
+    <span>Outreach</span>
+    <span>Volunteers</span>
+  </div>
+  <div class="gallery-grid masonry-grid">
+    {% for image in gallery_images %}
+    <article class="gallery-card">
+      <img src="{{ image.image.url }}" alt="{{ image.title }}" loading="lazy" />
+      <div class="gallery-card-copy">
+        <h3>{{ image.title }}</h3>
+        <p>{{ image.category }}</p>
+      </div>
+    </article>
+    {% empty %}
+    <article class="gallery-card"><div class="gallery-card-image"></div><div class="gallery-card-copy"><h3>Education</h3></div></article>
+    <article class="gallery-card"><div class="gallery-card-image"></div><div class="gallery-card-copy"><h3>Sports</h3></div></article>
+    <article class="gallery-card"><div class="gallery-card-image"></div><div class="gallery-card-copy"><h3>Community</h3></div></article>
+    <article class="gallery-card"><div class="gallery-card-image"></div><div class="gallery-card-copy"><h3>Events</h3></div></article>
+    <article class="gallery-card"><div class="gallery-card-image"></div><div class="gallery-card-copy"><h3>Volunteers</h3></div></article>
+    <article class="gallery-card"><div class="gallery-card-image"></div><div class="gallery-card-copy"><h3>Children</h3></div></article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

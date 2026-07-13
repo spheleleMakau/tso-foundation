@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block title %}Partners | TSO Foundation{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Partners</p>
+    <h1>Working with schools, government, business and community leaders.</h1>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="card-grid three-up partner-grid">
+    {% for partner in partners %}
+    <article class="partner-card">
+      {% if partner.logo %}
+      <img class="partner-logo" src="{{ partner.logo.url }}" alt="{{ partner.name }} logo" loading="lazy" />
+      {% else %}
+      <div class="partner-logo placeholder">Logo</div>
+      {% endif %}
+      <h3>{{ partner.name }}</h3>
+      <p>{{ partner.category }}</p>
+    </article>
+    {% empty %}
+    <article class="partner-card"><div class="partner-logo placeholder">SAPS</div><h3>SAPS</h3><p>Safety and community partnership</p></article>
+    <article class="partner-card"><div class="partner-logo placeholder">Pick n Pay</div><h3>Pick n Pay</h3><p>Retail partnership for community support</p></article>
+    <article class="partner-card"><div class="partner-logo placeholder">Vhathu</div><h3>Vhathu Phanda Forum</h3><p>Local community collaboration</p></article>
+    <article class="partner-card"><div class="partner-logo placeholder">Thandanani</div><h3>Thandanani Drop-In Centre</h3><p>Support for vulnerable youth</p></article>
+    <article class="partner-card"><div class="partner-logo placeholder">TSG</div><h3>Tsakane Engen Garage</h3><p>Community sponsorship</p></article>
+    <article class="partner-card"><div class="partner-logo placeholder">MASA</div><h3>MASA Local Food</h3><p>Nutrition and food support</p></article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Get Involved</p>
+      <h2>Volunteer, partner or donate to support our mission.</h2>
+    </div>
+    <div class="card-grid three-up">
+      <article class="feature-card">
+        <h3>Volunteer</h3>
+        <p>Share your skills and time with young people and community programmes.</p>
+      </article>
+      <article class="feature-card">
+        <h3>Become a Partner</h3>
+        <p>Join our network of schools, businesses and government partners.</p>
+      </article>
+      <article class="feature-card">
+        <h3>Donate</h3>
+        <p>Support our work with funding that drives education, sport and community development.</p>
+      </article>
+    </div>
+  </div>
+</section>
+{% endblock %}

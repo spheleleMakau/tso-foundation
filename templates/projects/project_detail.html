@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Project Details | TSO Foundation{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Project Spotlight</p>
+    <h1>{{ project.title if project else slug|title }}</h1>
+  </div>
+</section>
+
+<section class="section container project-detail">
+  <div class="detail-grid">
+    <div class="detail-copy">
+      <p class="eyebrow">Purpose</p>
+      <h2>{{ project.title if project else slug|title }}</h2>
+      <p>{{ project.description|default:'Provide school supplies, improve learner confidence, strengthen school-community relationships and promote safe learning environments.' }}</p>
+      <div class="info-list-block">
+        <h3>Objectives</h3>
+        <ul class="info-list">
+          <li>Provide school supplies.</li>
+          <li>Improve learner confidence.</li>
+          <li>Strengthen school-community relationships.</li>
+          <li>Promote safe learning environments.</li>
+          <li>Encourage sports participation.</li>
+        </ul>
+      </div>
+      <div class="project-results">
+        <h3>Results</h3>
+        <ul class="info-list">
+          <li>{{ project.impact|default:'Improved youth engagement, stronger partnerships and better school readiness.' }}</li>
+          <li>Over 100 learners supported.</li>
+          <li>Parents expressed appreciation.</li>
+          <li>Strengthened community partnerships.</li>
+        </ul>
+      </div>
+      <a class="btn btn-primary" href="{% url 'projects:projects' %}">Back to Projects</a>
+    </div>
+    <div class="detail-image">
+      {% if project and project.image %}
+      <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy" />
+      {% else %}
+      <div class="project-placeholder">Project image coming soon</div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}

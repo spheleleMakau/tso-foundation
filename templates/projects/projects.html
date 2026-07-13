@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block title %}Projects | TSO Foundation{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Projects</p>
+    <h1>Projects designed to bring immediate support and lasting change.</h1>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="card-grid three-up">
+    {% for project in projects %}
+    <article class="project-card">
+      <h3>{{ project.title }}</h3>
+      <p>{{ project.description|truncatewords:30 }}</p>
+      <p><strong>Impact:</strong> {{ project.impact }}</p>
+      <a href="{% url 'projects:project_detail' project.slug %}">View Details</a>
+    </article>
+    {% empty %}
+    <article class="project-card">
+      <h3>Back-to-School Campaign</h3>
+      <p>Provide school supplies, boost school readiness and strengthen community partnerships.</p>
+      <p><strong>Impact:</strong> Learners supported across schools and communities.</p>
+    </article>
+    <article class="project-card">
+      <h3>Sports Equipment Drive</h3>
+      <p>Deliver football equipment and sports kits to support youth participation and wellbeing.</p>
+      <p><strong>Impact:</strong> Increased youth engagement in sport and healthy activity.</p>
+    </article>
+    <article class="project-card">
+      <h3>Clothing Donation Drive</h3>
+      <p>Provide clothing and support for families in need to protect dignity and comfort.</p>
+      <p><strong>Impact:</strong> Essential support for children and households.</p>
+    </article>
+    <article class="project-card">
+      <h3>Drug Awareness Campaign</h3>
+      <p>Deliver community education, school outreach and SAPS partnerships to prevent substance abuse.</p>
+      <p><strong>Impact:</strong> Better awareness and safer youth environments.</p>
+    </article>
+    <article class="project-card">
+      <h3>Youth Empowerment Workshops</h3>
+      <p>Offer leadership, life skills and mentorship programmes that build confidence.</p>
+      <p><strong>Impact:</strong> Stronger youth leadership and positive decision-making.</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

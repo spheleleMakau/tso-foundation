@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact | TSO Foundation{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Contact</p>
+    <h1>Get in touch with our leadership and programme team.</h1>
+  </div>
+</section>
+
+<section class="section container contact-grid">
+  <div class="info-card contact-info">
+    <h3>Contact Information</h3>
+    <div class="contact-person">
+      <h4>Chairperson</h4>
+      <p>Kgomotso Makau</p>
+      <p>064 503 0951</p>
+      <p><a href="mailto:Kgomotsomakau722@gmail.com">Kgomotsomakau722@gmail.com</a></p>
+    </div>
+    <div class="contact-person">
+      <h4>Deputy Director</h4>
+      <p>Khinya Magadani</p>
+      <p>063 625 0682</p>
+      <p><a href="mailto:Johannes.magadani@gmail.com">Johannes.magadani@gmail.com</a></p>
+    </div>
+    <div class="contact-person">
+      <h4>Secretary / Project Manager</h4>
+      <p>Jimmy Makhado</p>
+      <p>074 013 931</p>
+      <p><a href="mailto:jimmykmakhado@gmail.com">jimmykmakhado@gmail.com</a></p>
+    </div>
+    <div class="map-placeholder">Google Map Placeholder</div>
+  </div>
+  <div class="info-card contact-form-card">
+    <h3>Send a message</h3>
+    {% if messages %}
+      {% for message in messages %}
+        <p class="message {{ message.tags }}">{{ message }}</p>
+      {% endfor %}
+    {% endif %}
+    <form method="post">
+      {% csrf_token %}
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input id="name" name="name" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input id="phone" name="phone" />
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <input id="subject" name="subject" required />
+      </div>
+      <div class="form-group">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block title %}About TSO Foundation{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">About Us</p>
+    <h1>Committed to building brighter futures through holistic support.</h1>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="card-grid two-up">
+    <article class="info-card">
+      <h3>Who We Are</h3>
+      <p>TSO Foundation is a community-led organisation focused on education, youth development, sports and social upliftment. We create safe, inclusive spaces where children and young people can grow, learn and lead.</p>
+    </article>
+    <article class="info-card">
+      <h3>Mission</h3>
+      <p>To empower children and young people with access to education, mentorship, sports and support systems that unlock their full potential.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="card-grid three-up">
+    <article class="info-card">
+      <h3>Vision</h3>
+      <p>To build resilient communities where every young person has the opportunity to thrive.</p>
+    </article>
+    <article class="info-card">
+      <h3>Objectives</h3>
+      <p>Improve access to education, promote wellness, strengthen leadership and expand community support networks.</p>
+    </article>
+    <article class="info-card">
+      <h3>Core Values</h3>
+      <p>Integrity, dignity, excellence, unity, accountability and compassion guide every initiative we lead.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-heading">
+      <p class="eyebrow">Leadership</p>
+      <h2>Meet the people behind the mission.</h2>
+    </div>
+    <div class="card-grid three-up">
+      {% for member in team_members %}
+      <article class="info-card">
+        <h3>{{ member.name }}</h3>
+        <p><strong>{{ member.role }}</strong></p>
+        <p>{{ member.bio }}</p>
+      </article>
+      {% empty %}
+      <article class="info-card">
+        <h3>Founder</h3>
+        <p>Dedicated to building sustainable youth and community development programmes across South Africa.</p>
+      </article>
+      <article class="info-card">
+        <h3>Programmes Lead</h3>
+        <p>Ensures every initiative is inclusive, well managed and aligned with long-term development goals.</p>
+      </article>
+      <article class="info-card">
+        <h3>Community Relations</h3>
+        <p>Builds partnerships with schools, organisations and public institutions to expand reach and impact.</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

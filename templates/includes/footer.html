@@ -1,0 +1,25 @@
+{% load static %}
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div>
+      <a class="brand-footer" href="{% url 'home:index' %}">
+        <img src="{% static 'images/logo.jpeg' %}" alt="TSO Foundation logo" class="footer-logo" />
+      </a>
+      <p>Empowering children and young people through education, leadership, sports and community development.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="{% url 'home:index' %}">Home</a></li>
+        <li><a href="{% url 'about:about' %}">About</a></li>
+        <li><a href="{% url 'programmes:programmes' %}">Programmes</a></li>
+        <li><a href="{% url 'contact:contact' %}">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <p>hello@tsocentre.org<br />+27 11 234 5678</p>
+      <p>Newsletter signup coming soon.</p>
+    </div>
+  </div>
+</footer>

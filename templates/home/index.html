@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}" />
+{% endblock %}
+
+{% block title %}TSO Foundation | Empowering Communities{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="hero-slider">
+    {% for slide in hero_slides %}
+    <div class="hero-slide{% if forloop.first %} active{% endif %}"{% if slide.image %} style="background-image: url('{{ slide.image.url }}');"{% endif %}>
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <div class="hero-copy-block">
+          <div class="hero-eyebrow-row">
+            <p class="eyebrow">{{ slide.subtitle }}</p>
+            <span class="hero-pill">People-first programs for lasting impact</span>
+          </div>
+          <span class="hero-badge">Registered NPO • Community-led impact</span>
+          <h1>{{ slide.title }}</h1>
+          <p class="hero-copy">TSO Foundation empowers children, youth and families through education, sports, skills development and community partnerships that create safer, stronger and more sustainable communities.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="{% url 'partners:partners' %}">Become a Partner</a>
+            <a class="btn btn-secondary" href="{% url 'contact:contact' %}">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% empty %}
+    <div class="hero-slide active">
+      <div class="hero-overlay"></div>
+      <div class="hero-content container">
+        <div class="hero-copy-block">
+          <div class="hero-eyebrow-row">
+            <p class="eyebrow">Education • Community • Growth</p>
+            <span class="hero-pill">People-first programs for lasting impact</span>
+          </div>
+          <span class="hero-badge">Registered NPO • Community-led impact</span>
+          <h1>Building Stronger Communities Through Education, Sports & Youth Development</h1>
+          <p class="hero-copy">TSO Foundation empowers children, youth and families through education, sports, skills development and community partnerships that create safer, stronger and more sustainable communities.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="{% url 'partners:partners' %}">Become a Partner</a>
+            <a class="btn btn-secondary" href="{% url 'contact:contact' %}">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section container">
+  <div class="section-heading">
+    <p class="eyebrow">About TSO Foundation</p>
+    <h2>TSO Foundation is a registered Non-Profit Organisation committed to empowering young people through education, sports, skills development and community-led initiatives.</h2>
+    <p class="section-intro">Working alongside schools, businesses, government departments and community organisations, we create opportunities that help young people reach their full potential while building safer communities.</p>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container counters-grid">
+    <div class="counter-card">
+      <strong>100+</strong>
+      <span>Learners Supported</span>
+    </div>
+    <div class="counter-card">
+      <strong>7+</strong>
+      <span>Community Partners</span>
+    </div>
+    <div class="counter-card">
+      <strong>2024</strong>
+      <span>Registered NPO</span>
+    </div>
+    <div class="counter-card">
+      <strong>100%</strong>
+      <span>Committed to Community Development</span>
+    </div>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="section-heading">
+    <p class="eyebrow">Our Focus Areas</p>
+    <h2>Programs designed to support every child and young person.</h2>
+  </div>
+  <div class="card-grid three-up">
+    <article class="feature-card">
+      <span class="icon">📚</span>
+      <h3>Education Support</h3>
+      <p>Helping learners succeed through school supplies, academic support and back-to-school programmes.</p>
+    </article>
+    <article class="feature-card">
+      <span class="icon">⚽</span>
+      <h3>Sports Development</h3>
+      <p>Supporting youth through football programmes, equipment donations, coaching and talent development.</p>
+    </article>
+    <article class="feature-card">
+      <span class="icon">🌱</span>
+      <h3>Youth Skills Development</h3>
+      <p>Helping young people gain practical life skills through workshops, leadership and community engagement.</p>
+    </article>
+    <article class="feature-card">
+      <span class="icon">🤝</span>
+      <h3>Community Development</h3>
+      <p>Building stronger communities through outreach, partnerships and social development initiatives.</p>
+    </article>
+    <article class="feature-card">
+      <span class="icon">🛡</span>
+      <h3>Drug Awareness</h3>
+      <p>Working with schools and SAPS to educate young people about substance abuse and healthy choices.</p>
+    </article>
+    <article class="feature-card">
+      <span class="icon">💙</span>
+      <h3>GBV Awareness</h3>
+      <p>Encouraging boys and young men to become positive role models and prevent gender-based violence.</p>
+    </article>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container cta-banner">
+    <h2>Help us create opportunities for every child and young person.</h2>
+    <p>Become a partner and help us build stronger communities through education, sport and youth development.</p>
+    <a class="btn btn-primary" href="{% url 'partners:partners' %}">Become a Partner</a>
+  </div>
+</section>
+{% endblock %}

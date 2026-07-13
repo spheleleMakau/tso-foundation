@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Programmes | TSO Foundation{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">Programmes</p>
+    <h1>Programmes built for education, sport, leadership and community growth.</h1>
+  </div>
+</section>
+
+<section class="section container">
+  <div class="card-grid three-up">
+    {% for programme in programmes %}
+    <article class="feature-card">
+      <h3>{{ programme.title }}</h3>
+      <p>{{ programme.description }}</p>
+      {% if programme.image %}
+      <img src="{{ programme.image.url }}" alt="{{ programme.title }}" loading="lazy" />
+      {% endif %}
+    </article>
+    {% empty %}
+    <article class="feature-card">
+      <h3>Education Support</h3>
+      <p>Helping learners succeed through school supplies, academic support and back-to-school programmes.</p>
+    </article>
+    <article class="feature-card">
+      <h3>Sports Development</h3>
+      <p>Supporting youth through football programmes, equipment donations, coaching and talent development.</p>
+    </article>
+    <article class="feature-card">
+      <h3>Youth Skills Development</h3>
+      <p>Helping young people gain practical life skills through workshops, leadership and community engagement.</p>
+    </article>
+    <article class="feature-card">
+      <h3>Community Development</h3>
+      <p>Building stronger communities through outreach, partnerships and social development initiatives.</p>
+    </article>
+    <article class="feature-card">
+      <h3>Drug Awareness</h3>
+      <p>Working with schools and SAPS to educate young people about substance abuse and promote healthy lifestyles.</p>
+    </article>
+    <article class="feature-card">
+      <h3>GBV Awareness</h3>
+      <p>Encouraging boys and young men to become positive role models and prevent gender-based violence.</p>
+    </article>
+    <article class="feature-card">
+      <h3>Mentorship</h3>
+      <p>Mentoring young people to build confidence, decision-making and community leadership.</p>
+    </article>
+    <article class="feature-card">
+      <h3>Leadership Development</h3>
+      <p>Developing leadership through structured programmes, life skills and youth participation.</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
